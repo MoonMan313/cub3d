@@ -6,7 +6,7 @@
 /*   By: cdionna <cdionna@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/12 16:45:29 by cdionna           #+#    #+#             */
-/*   Updated: 2021/05/11 18:12:10 by cdionna          ###   ########.fr       */
+/*   Updated: 2021/05/11 20:05:00 by cdionna          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,27 +15,27 @@
 void	error_param(int i)
 {
 	if (i == 1)
-		printf("Error: color entered incorrectly\n");
+		printf("Error\ncolor entered incorrectly\n");
 	else if (i == 2)
-		printf("Error: color entered more than once\n");
+		printf("Error\ncolor entered more than once\n");
 	else if (i == 3)
-		printf("Error: display resolution specified incorrectly\n");
+		printf("Error\ndisplay resolution specified incorrectly\n");
 	else if (i == 4)
-		printf("Error: texture entered more than once\n");
+		printf("Error\ntexture entered more than once\n");
 	else if (i == 5)
-		printf("Error: texture entered incorrectly\n");
+		printf("Error\ntexture entered incorrectly\n");
 	else if (i == 6)
-		printf("Error: the player's starting position is not correct\n");
+		printf("Error\nthe player's starting position is not correct\n");
 	else if (i == 7)
-		printf("Error: map parameters\n");
+		printf("Error\nmap parameters\n");
 	else if (i == 8)
-		printf("Error: map not valid\n");
+		printf("Error\nmap not valid\n");
 	else if (i == 9)
-		printf("Error: not enough memory\n");
+		printf("Error\nnot enough memory\n");
 	else if (i == 10)
-		printf("Error: failed to create BMP file\n");
+		printf("Error\nfailed to create BMP file\n");
 	else if (i == 11)
-		printf("Error: first argument not valid\n");
+		printf("Error\nfirst argument not valid\n");
 	exit(1);
 }
 
