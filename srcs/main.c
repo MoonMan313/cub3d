@@ -6,7 +6,7 @@
 /*   By: cdionna <cdionna@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/13 14:02:35 by cdionna           #+#    #+#             */
-/*   Updated: 2021/05/11 18:14:40 by cdionna          ###   ########.fr       */
+/*   Updated: 2021/05/12 16:51:44 by cdionna          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -134,6 +134,7 @@ int	main(int argc, char *argv[])
 			make_screen(&cub);
 		}
 	}
-	printf("Error: ivalid arguments\n");
+	else
+		printf("Error: ivalid arguments\n");
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: cdionna <cdionna@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/29 13:40:33 by cdionna           #+#    #+#             */
-/*   Updated: 2021/05/11 16:17:50 by cdionna          ###   ########.fr       */
+/*   Updated: 2021/05/12 15:46:52 by cdionna          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,11 +84,11 @@ void	look_to_left(t_cub *cub)
 	double	tmp;
 
 	tmp = cub->dir_x;
-	cub->dir_x = tmp * cos(0.1) - cub->dir_y * sin(0.1);
-	cub->dir_y = tmp * sin(0.1) + cub->dir_y * cos(0.1);
+	cub->dir_x = tmp * cos(P) - cub->dir_y * sin(P);
+	cub->dir_y = tmp * sin(P) + cub->dir_y * cos(P);
 	tmp = cub->plane_x;
-	cub->plane_x = tmp * cos(0.1) - cub->plane_y * sin(0.1);
-	cub->plane_y = tmp * sin(0.1) + cub->plane_y * cos(0.1);
+	cub->plane_x = tmp * cos(P) - cub->plane_y * sin(P);
+	cub->plane_y = tmp * sin(P) + cub->plane_y * cos(P);
 }
 
 void	look_to_right(t_cub *cub)
@@ -96,9 +96,9 @@ void	look_to_right(t_cub *cub)
 	double	tmp;
 
 	tmp = cub->dir_x;
-	cub->dir_x = tmp * cos(-0.1) - cub->dir_y * sin(-0.1);
-	cub->dir_y = tmp * sin(-0.1) + cub->dir_y * cos(-0.1);
+	cub->dir_x = tmp * cos(-P) - cub->dir_y * sin(-P);
+	cub->dir_y = tmp * sin(-P) + cub->dir_y * cos(-P);
 	tmp = cub->plane_x;
-	cub->plane_x = tmp * cos(-0.1) - cub->plane_y * sin(-0.1);
-	cub->plane_y = tmp * sin(-0.1) + cub->plane_y * cos(-0.1);
+	cub->plane_x = tmp * cos(-P) - cub->plane_y * sin(-P);
+	cub->plane_y = tmp * sin(-P) + cub->plane_y * cos(-P);
 }
