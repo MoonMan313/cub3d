@@ -12,9 +12,9 @@
 
 #include "../cub3.h"
 
-void	step_d_a(int key, t_cub *cub)
+void	step_d_a(t_cub *cub)
 {
-	if (key == D)
+	if (cub->key.d)
 	{
 		if (cub->map[(int)(cub->start_x + cub->dir_y * STEP)] \
 		[(int)cub->start_y] != '1'
@@ -25,7 +25,7 @@ void	step_d_a(int key, t_cub *cub)
 			cub->start_y -= cub->dir_x * STEP;
 		}
 	}
-	else
+	if (cub->key.a)
 	{
 		if (cub->map[(int)(cub->start_x - cub->dir_y * STEP)] \
 		[(int)cub->start_y] != '1'
@@ -38,9 +38,9 @@ void	step_d_a(int key, t_cub *cub)
 	}
 }
 
-void	step_w_s(int key, t_cub *cub)
+void	step_w_s(t_cub *cub)
 {
-	if (key == W)
+	if (cub->key.w)
 	{
 		if (cub->map[(int)(cub->start_x + cub->dir_x * STEP)] \
 		[(int)cub->start_y] != '1'
@@ -51,7 +51,7 @@ void	step_w_s(int key, t_cub *cub)
 			cub->start_y += cub->dir_y * STEP;
 		}
 	}
-	else
+	if (cub->key.s)
 	{
 		if (cub->map[(int)(cub->start_x - cub->dir_x * STEP)] \
 		[(int)cub->start_y] != '1'
@@ -62,21 +62,6 @@ void	step_w_s(int key, t_cub *cub)
 			cub->start_y -= cub->dir_y * STEP;
 		}
 	}
-}
-
-int	key_press(int key, t_cub *cub)
-{
-	if (key == ESC)
-		exit(0);
-	else if (key == W || key == S)
-		step_w_s(key, cub);
-	else if (key == D || key == A)
-		step_d_a(key, cub);
-	else if (key == LEFT)
-		look_to_left(cub);
-	else if (key == RIGHT)
-		look_to_right(cub);
-	return (0);
 }
 
 void	look_to_left(t_cub *cub)
@@ -101,4 +86,17 @@ void	look_to_right(t_cub *cub)
 	tmp = cub->plane_x;
 	cub->plane_x = tmp * cos(-P) - cub->plane_y * sin(-P);
 	cub->plane_y = tmp * sin(-P) + cub->plane_y * cos(-P);
+}
+
+int	check_key(t_cub *cub)
+{
+	if (cub->key.w || cub->key.s)
+		step_w_s(cub);
+	if (cub->key.d || cub->key.a)
+		step_d_a(cub);
+	if (cub->key.left)
+		look_to_left(cub);
+	if (cub->key.right)
+		look_to_right(cub);
+	return (0);
 }

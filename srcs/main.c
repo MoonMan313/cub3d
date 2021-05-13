@@ -31,16 +31,20 @@ void	cub_init(t_cub *cub)
 	cub->map_width = 0;
 	cub->map = 0;
 	cub->sprite = 0;
+	cub->key.w = 0;
+	cub->key.a = 0;
+	cub->key.s = 0;
+	cub->key.d = 0;
+	cub->key.left = 0;
+	cub->key.right = 0;
 }
 
 static void	read_map_1(int fd, t_cub *cub)
 {
 	char	*line;
 	int		count;
-	int		tmp;
 
 	count = 0;
-	tmp = 0;
 	while (get_next_line(fd, &line) > 0)
 	{
 		if (count < 8)
@@ -123,9 +127,10 @@ int	main(int argc, char *argv[])
 		parser(&cub, argv[1]);
 		if (argc == 2)
 		{
+			mlx_hook(cub.win, 33, 256, exita, &cub);
 			mlx_hook(cub.win, 2, 1L << 0, key_press, &cub);
-			mlx_hook(cub.win, 17, 1L << 17, exita, &cub);
 			mlx_loop_hook(cub.mlx, raycasting, &cub);
+			mlx_hook(cub.win, 3, 1L << 1, releasing_key, &cub);
 			mlx_loop(cub.mlx);
 		}
 		else

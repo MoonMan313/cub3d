@@ -94,6 +94,7 @@ int	raycasting(t_cub *cub)
 	t_ray	ray;
 
 	ray.x = 0;
+	check_key(cub);
 	while (ray.x < cub->width)
 	{
 		ray_of_setting(&ray, cub);

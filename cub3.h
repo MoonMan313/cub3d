@@ -15,25 +15,32 @@
 
 # include <unistd.h>
 # include <stdlib.h>
-# include "mlx.h"
+# include "./mlx_linux/mlx.h"
 # include <stdio.h>
 # include <fcntl.h>
 # include <math.h>
 # include <stdint.h>
 
 /* Keyboard keys */
-# define ESC 53
-# define W 13
-# define A 0
-# define S 1
-# define D 2
-# define LEFT 123
-# define RIGHT 124
+// # define ESC 53
+// # define W 13
+// # define A 0
+// # define S 1
+// # define D 2
+// # define LEFT 123
+// # define RIGHT 124
+
+# define ESC 65307
+# define W 119
+# define A 97
+# define S 115
+# define D 100
+# define LEFT 65361
+# define RIGHT 65363
 
 /* Parameters */
-# define STEP 0.13
-# define MINI_MAP 5
-# define P 0.5
+# define STEP 0.09
+# define P 0.06
 
 typedef struct s_color
 {
@@ -67,6 +74,16 @@ typedef struct s_list
 	struct s_list	*next;
 }				t_list;
 
+typedef struct s_key
+{
+	int		w;
+	int		a;
+	int		s;
+	int		d;
+	int		left;
+	int		right;
+}				t_key;
+
 typedef struct s_cub
 {
 	double	dir_x;
@@ -75,6 +92,7 @@ typedef struct s_cub
 	double	plane_y;
 	double	start_x;
 	double	start_y;
+	t_key	key;
 	int		flag;
 	double	*buf_distance;
 	void	*mlx;
@@ -186,5 +204,7 @@ void			make_screen(t_cub *cub);
 void			setting_sprite_param(t_sprite *sprite, t_cub *cub, \
 				int spr_x, int spr_y);
 void			check_file_cub(char *name);
+int				check_key(t_cub *cub);
+int				releasing_key(int key, t_cub *cub);
 
 #endif
