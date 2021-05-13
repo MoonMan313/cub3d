@@ -34,7 +34,7 @@ int	get_next_line(int fd, char **line)
 	if (!line || read(fd, &l, 0) < 0)
 		return (-1);
 	*line = ft_strdup("");
-	buf = (char *)malloc(sizeof(char));
+	buf = (char *)malloc(sizeof(char) * 2);
 	if (!buf)
 		return (-1);
 	l = read(fd, buf, 1);
