@@ -39,8 +39,8 @@
 # define RIGHT 65363
 
 /* Parameters */
-# define STEP 0.09
-# define P 0.06
+# define STEP 0.05
+# define P 0.025
 
 typedef struct s_color
 {

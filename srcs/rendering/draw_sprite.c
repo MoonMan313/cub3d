@@ -40,6 +40,6 @@ void	setting_sprite_param(t_sprite *sprite, t_cub *cub, int spr_x, int spr_y)
 	sprite->spriteScreenX = (int)((cub->width / 2) * (1 + sprite->transformX \
 										/ sprite->transformY));
 	sprite->spriteHeight = abs((int)(cub->height / (sprite->transformY)));
-	sprite->spriteWidth = abs((int)(cub->height / (sprite->transformY)));
+	sprite->spriteWidth = abs((int)(cub->width / (sprite->transformY)));
 	define_sprite_boundaries(sprite, cub);
 }
