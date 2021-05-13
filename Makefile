@@ -59,9 +59,9 @@ SRCS = $(addprefix srcs/, $(addprefix parser/, parser_textures.c parser_map.c pa
 
 O_FILE = $(SRCS:.c=.o)
 
-MLX_FLAGS = -L. ./mlx_linux/libmlx.a -lm -lXext -lX11
+MLX_FLAGS = -L. ./minilibx-linux/libmlx.a -lm -lXext -lX11
 
-C_FLAGS = -Wall -Wextra -Werror -I ./mlx_linux/
+C_FLAGS = -Wall -Wextra -Werror -I ./minilibx-linux/
 
 all: $(NAME)
 

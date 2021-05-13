@@ -4,7 +4,7 @@ int	key_press(int key, t_cub *cub)
 {
 	if (key == ESC)
 		exit(0);
-	else if (key == W )
+	else if (key == W)
 		cub->key.w = 1;
 	else if (key == S)
 		cub->key.s = 1;
@@ -21,7 +21,7 @@ int	key_press(int key, t_cub *cub)
 
 int	releasing_key(int key, t_cub *cub)
 {
-	if (key == W )
+	if (key == W)
 		cub->key.w = 0;
 	else if (key == S)
 		cub->key.s = 0;
