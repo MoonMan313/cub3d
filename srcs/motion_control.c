@@ -6,7 +6,7 @@
 /*   By: evelina <evelina@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/29 13:40:33 by cdionna           #+#    #+#             */
-/*   Updated: 2021/05/14 16:19:39 by evelina          ###   ########.fr       */
+/*   Updated: 2021/05/14 17:26:32 by evelina          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,4 +102,3 @@ int	key_press(int key, t_cub *cub)
 		look_to_right(cub);
 	return (0);
 }
-
