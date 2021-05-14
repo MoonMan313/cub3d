@@ -6,7 +6,7 @@
 #    By: evelina <evelina@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/03/13 13:49:35 by cdionna           #+#    #+#              #
-#    Updated: 2021/05/14 16:30:54 by evelina          ###   ########.fr        #
+#    Updated: 2021/05/14 17:19:08 by evelina          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,6 +30,7 @@ C_FLAGS = -Wall -Wextra -Werror -I ./minilibx-linux/
 all: $(NAME)
 
 $(NAME): $(O_FILE)
+	@$(MAKE) -C minilibx-linux all
 	@gcc $(C_FLAGS) $(O_FILE) -o $(NAME) $(MLX_FLAGS)
 
 %.o: %.c $(HEADER)
@@ -39,6 +40,7 @@ clean:
 	@rm -rf $(O_FILE)
 
 fclean: clean
+	@$(MAKE) -C minilibx-linux clean
 	@rm -rf $(NAME)
 
 re:		fclean all
