@@ -6,15 +6,15 @@
 /*   By: evelina <evelina@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/29 13:40:33 by cdionna           #+#    #+#             */
-/*   Updated: 2021/05/14 13:52:59 by evelina          ###   ########.fr       */
+/*   Updated: 2021/05/14 16:19:39 by evelina          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../cub3.h"
 
-void	step_d_a(t_cub *cub)
+void	step_d_a(int key, t_cub *cub)
 {
-	if (cub->key.d)
+	if (key == D)
 	{
 		if (cub->map[(int)(cub->start_x + cub->dir_y * STEP)] \
 		[(int)cub->start_y] != '1'
@@ -25,7 +25,7 @@ void	step_d_a(t_cub *cub)
 			cub->start_y -= cub->dir_x * STEP;
 		}
 	}
-	if (cub->key.a)
+	else
 	{
 		if (cub->map[(int)(cub->start_x - cub->dir_y * STEP)] \
 		[(int)cub->start_y] != '1'
@@ -38,9 +38,9 @@ void	step_d_a(t_cub *cub)
 	}
 }
 
-void	step_w_s(t_cub *cub)
+void	step_w_s(int key, t_cub *cub)
 {
-	if (cub->key.w)
+	if (key == W)
 	{
 		if (cub->map[(int)(cub->start_x + cub->dir_x * STEP)] \
 		[(int)cub->start_y] != '1'
@@ -51,7 +51,7 @@ void	step_w_s(t_cub *cub)
 			cub->start_y += cub->dir_y * STEP;
 		}
 	}
-	if (cub->key.s)
+	else
 	{
 		if (cub->map[(int)(cub->start_x - cub->dir_x * STEP)] \
 		[(int)cub->start_y] != '1'
@@ -88,15 +88,18 @@ void	look_to_right(t_cub *cub)
 	cub->plane_y = tmp * sin(-P) + cub->plane_y * cos(-P);
 }
 
-int	check_key(t_cub *cub)
+int	key_press(int key, t_cub *cub)
 {
-	if (cub->key.w || cub->key.s)
-		step_w_s(cub);
-	if (cub->key.d || cub->key.a)
-		step_d_a(cub);
-	if (cub->key.left)
+	if (key == ESC)
+		exit(0);
+	else if (key == W || key == S)
+		step_w_s(key, cub);
+	else if (key == D || key == A)
+		step_d_a(key, cub);
+	else if (key == LEFT)
 		look_to_left(cub);
-	if (cub->key.right)
+	else if (key == RIGHT)
 		look_to_right(cub);
 	return (0);
 }
+

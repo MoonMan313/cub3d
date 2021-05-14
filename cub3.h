@@ -6,7 +6,7 @@
 /*   By: evelina <evelina@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/13 14:04:58 by cdionna           #+#    #+#             */
-/*   Updated: 2021/05/13 23:56:40 by evelina          ###   ########.fr       */
+/*   Updated: 2021/05/14 16:31:57 by evelina          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,15 +21,6 @@
 # include <math.h>
 # include <stdint.h>
 
-/* Keyboard keys */
-// # define ESC 53
-// # define W 13
-// # define A 0
-// # define S 1
-// # define D 2
-// # define LEFT 123
-// # define RIGHT 124
-
 # define ESC 65307
 # define W 119
 # define A 97
@@ -39,8 +30,8 @@
 # define RIGHT 65363
 
 /* Parameters */
-# define STEP 0.09
-# define P 0.04
+# define STEP 0.08
+# define P 0.05
 
 typedef struct s_color
 {
@@ -74,16 +65,6 @@ typedef struct s_list
 	struct s_list	*next;
 }				t_list;
 
-typedef struct s_key
-{
-	int		w;
-	int		a;
-	int		s;
-	int		d;
-	int		left;
-	int		right;
-}				t_key;
-
 typedef struct s_cub
 {
 	double	dir_x;
@@ -92,7 +73,6 @@ typedef struct s_cub
 	double	plane_y;
 	double	start_x;
 	double	start_y;
-	t_key	key;
 	int		flag;
 	double	*buf_distance;
 	void	*mlx;
@@ -204,7 +184,5 @@ void			make_screen(t_cub *cub);
 void			setting_sprite_param(t_sprite *sprite, t_cub *cub, \
 				int spr_x, int spr_y);
 void			check_file_cub(char *name);
-int				check_key(t_cub *cub);
-int				releasing_key(int key, t_cub *cub);
 
 #endif

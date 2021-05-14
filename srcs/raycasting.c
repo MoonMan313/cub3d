@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   raycasting.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cdionna <cdionna@student.42.fr>            +#+  +:+       +#+        */
+/*   By: evelina <evelina@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/29 17:18:41 by cdionna           #+#    #+#             */
-/*   Updated: 2021/05/12 15:36:38 by cdionna          ###   ########.fr       */
+/*   Updated: 2021/05/14 16:19:57 by evelina          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,7 +94,6 @@ int	raycasting(t_cub *cub)
 	t_ray	ray;
 
 	ray.x = 0;
-	check_key(cub);
 	while (ray.x < cub->width)
 	{
 		ray_of_setting(&ray, cub);

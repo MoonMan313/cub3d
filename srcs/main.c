@@ -6,7 +6,7 @@
 /*   By: evelina <evelina@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/13 14:02:35 by cdionna           #+#    #+#             */
-/*   Updated: 2021/05/13 23:05:37 by evelina          ###   ########.fr       */
+/*   Updated: 2021/05/14 16:32:09 by evelina          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,12 +31,6 @@ void	cub_init(t_cub *cub)
 	cub->map_width = 0;
 	cub->map = 0;
 	cub->sprite = 0;
-	cub->key.w = 0;
-	cub->key.a = 0;
-	cub->key.s = 0;
-	cub->key.d = 0;
-	cub->key.left = 0;
-	cub->key.right = 0;
 }
 
 static void	read_map_1(int fd, t_cub *cub)
@@ -130,7 +124,6 @@ int	main(int argc, char *argv[])
 			mlx_hook(cub.win, 33, 256, exita, &cub);
 			mlx_hook(cub.win, 2, 1L << 0, key_press, &cub);
 			mlx_loop_hook(cub.mlx, raycasting, &cub);
-			mlx_hook(cub.win, 3, 1L << 1, releasing_key, &cub);
 			mlx_loop(cub.mlx);
 		}
 		else

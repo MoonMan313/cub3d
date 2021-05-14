@@ -1,11 +1,11 @@
 
-R 192 108
+R 80000 60000
 
-NO ./textures/1223.xpm
-SO ./textures/234.xpm
-WE ./textures/345.xpm
-EA ./textures/455.xpm
-S ./textures/pillar.xpm
+NO ./textures/path_to_the_north_texture.xpm
+SO ./textures/path_to_the_south_texture.xpm
+WE ./textures/path_to_the_west_texture.xpm
+EA ./textures/path_to_the_east_texture.xpm
+S ./textures/path_to_the_sprite_texture.xpm
 C 241, 145, 255
 F 122, 204, 245
 
