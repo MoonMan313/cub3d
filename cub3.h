@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3.h                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cdionna <cdionna@student.42.fr>            +#+  +:+       +#+        */
+/*   By: evelina <evelina@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/13 14:04:58 by cdionna           #+#    #+#             */
-/*   Updated: 2021/05/11 18:17:12 by cdionna          ###   ########.fr       */
+/*   Updated: 2021/05/13 23:56:40 by evelina          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,8 +39,8 @@
 # define RIGHT 65363
 
 /* Parameters */
-# define STEP 0.05
-# define P 0.025
+# define STEP 0.09
+# define P 0.04
 
 typedef struct s_color
 {

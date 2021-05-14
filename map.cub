@@ -1,5 +1,5 @@
 
-R 1500 900
+R 192 108
 
 NO ./textures/1223.xpm
 SO ./textures/234.xpm
@@ -8,6 +8,7 @@ EA ./textures/455.xpm
 S ./textures/pillar.xpm
 C 241, 145, 255
 F 122, 204, 245
+
 
 11111
 12S21

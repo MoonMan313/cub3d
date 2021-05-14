@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parser_params.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cdionna <cdionna@student.42.fr>            +#+  +:+       +#+        */
+/*   By: evelina <evelina@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/19 17:35:38 by cdionna           #+#    #+#             */
-/*   Updated: 2021/05/11 18:11:37 by cdionna          ###   ########.fr       */
+/*   Updated: 2021/05/14 13:31:50 by evelina          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,10 +23,10 @@ void	parser_resolution(char *line, t_cub *cub)
 	line = ft_isspase(line);
 	if ((1 > cub->width) || (1 > cub->height) || *line != '\0')
 		error_param(3);
-	if ((cub->width > 2560) || (cub->height > 1440))
+	if ((cub->width > 1920) || (cub->height > 1080))
 	{
-		cub->width = 2560;
-		cub->height = 1440;
+		cub->width = 1920;
+		cub->height = 1080;
 	}
 	cub->buf_distance = malloc(sizeof(double) * cub->width);
 	if (!cub->buf_distance)

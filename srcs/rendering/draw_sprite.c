@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   draw_sprite.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cdionna <cdionna@student.42.fr>            +#+  +:+       +#+        */
+/*   By: evelina <evelina@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/11 13:41:31 by cdionna           #+#    #+#             */
-/*   Updated: 2021/05/11 16:18:38 by cdionna          ###   ########.fr       */
+/*   Updated: 2021/05/14 13:39:45 by evelina          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,6 @@ void	setting_sprite_param(t_sprite *sprite, t_cub *cub, int spr_x, int spr_y)
 	sprite->spriteScreenX = (int)((cub->width / 2) * (1 + sprite->transformX \
 										/ sprite->transformY));
 	sprite->spriteHeight = abs((int)(cub->height / (sprite->transformY)));
-	sprite->spriteWidth = abs((int)(cub->width / (sprite->transformY)));
+	sprite->spriteWidth = abs((int)(cub->height / (sprite->transformY)));
 	define_sprite_boundaries(sprite, cub);
 }
