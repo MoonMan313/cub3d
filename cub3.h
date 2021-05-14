@@ -6,7 +6,7 @@
 /*   By: evelina <evelina@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/13 14:04:58 by cdionna           #+#    #+#             */
-/*   Updated: 2021/05/14 16:31:57 by evelina          ###   ########.fr       */
+/*   Updated: 2021/05/14 19:05:18 by evelina          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 # include <unistd.h>
 # include <stdlib.h>
-# include "./minilibx-linux/mlx.h"
+# include "./minilibx_linux/mlx.h"
 # include <stdio.h>
 # include <fcntl.h>
 # include <math.h>
@@ -30,8 +30,8 @@
 # define RIGHT 65363
 
 /* Parameters */
-# define STEP 0.08
-# define P 0.05
+# define STEP 0.008
+# define P 0.005
 
 typedef struct s_color
 {
@@ -57,6 +57,16 @@ typedef struct s_tex
 	double	tex_pos;
 }				t_tex;
 
+typedef struct s_key
+{
+	int		w;
+	int		a;
+	int		s;
+	int		d;
+	int		left;
+	int		right;
+}				t_key;
+
 typedef struct s_list
 {
 	int				x;
@@ -71,6 +81,7 @@ typedef struct s_cub
 	double	dir_y;
 	double	plane_x;
 	double	plane_y;
+	t_key	key;
 	double	start_x;
 	double	start_y;
 	int		flag;
@@ -168,8 +179,6 @@ unsigned int	my_mlx_pixel_get(t_tex *data, int x, int y);
 void			find_player(t_cub *cub);
 int				raycasting(t_cub *cub);
 void			direction(t_cub *cub);
-void			look_to_left(t_cub *cub);
-void			look_to_right(t_cub *cub);
 void			get_textures(t_tex *textur, t_cub *cub);
 void			init_texture(t_tex *textur);
 void			wall_size(t_ray *ray, t_cub *cub);
@@ -184,5 +193,7 @@ void			make_screen(t_cub *cub);
 void			setting_sprite_param(t_sprite *sprite, t_cub *cub, \
 				int spr_x, int spr_y);
 void			check_file_cub(char *name);
+int				check_key(t_cub *cub);
+int				releasing_key(int key, t_cub *cub);
 
 #endif

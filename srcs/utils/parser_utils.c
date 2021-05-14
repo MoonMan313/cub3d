@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parser_utils.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cdionna <cdionna@student.42.fr>            +#+  +:+       +#+        */
+/*   By: evelina <evelina@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/20 16:23:19 by cdionna           #+#    #+#             */
-/*   Updated: 2021/05/11 17:48:55 by cdionna          ###   ########.fr       */
+/*   Updated: 2021/05/14 18:37:02 by evelina          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,8 +51,8 @@ int	ft_atoi(const char *str)
 		value = value * 10 + (int)(*str - 48);
 		++str;
 		++i;
-		if (i > 6)
-			return (1000000);
+		if (value > 2000)
+			return (10000);
 		if (*str < 47 || *str > 58)
 			return (value);
 	}

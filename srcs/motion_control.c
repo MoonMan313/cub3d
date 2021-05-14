@@ -6,99 +6,102 @@
 /*   By: evelina <evelina@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/29 13:40:33 by cdionna           #+#    #+#             */
-/*   Updated: 2021/05/14 17:26:32 by evelina          ###   ########.fr       */
+/*   Updated: 2021/05/14 19:31:08 by evelina          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../cub3.h"
 
-void	step_d_a(int key, t_cub *cub)
+void	step_d_a(t_cub *cub, double step)
 {
-	if (key == D)
+	if (cub->key.d)
 	{
-		if (cub->map[(int)(cub->start_x + cub->dir_y * STEP)] \
+		if (cub->map[(int)(cub->start_x + cub->dir_y * step)] \
 		[(int)cub->start_y] != '1'
 		&& cub->map[(int)cub->start_x] \
-		[(int)(cub->start_y - cub->dir_x * STEP)] != '1')
+		[(int)(cub->start_y - cub->dir_x * step)] != '1')
 		{
-			cub->start_x += cub->dir_y * STEP;
-			cub->start_y -= cub->dir_x * STEP;
+			cub->start_x += cub->dir_y * step;
+			cub->start_y -= cub->dir_x * step;
 		}
 	}
-	else
+	if (cub->key.a)
 	{
-		if (cub->map[(int)(cub->start_x - cub->dir_y * STEP)] \
+		if (cub->map[(int)(cub->start_x - cub->dir_y * step)] \
 		[(int)cub->start_y] != '1'
 		&& cub->map[(int)cub->start_x] \
-		[(int)(cub->start_y + cub->dir_x * STEP)] != '1')
+		[(int)(cub->start_y + cub->dir_x * step)] != '1')
 		{
-			cub->start_x -= cub->dir_y * STEP;
-			cub->start_y += cub->dir_x * STEP;
+			cub->start_x -= cub->dir_y * step;
+			cub->start_y += cub->dir_x * step;
 		}
 	}
 }
 
-void	step_w_s(int key, t_cub *cub)
+void	step_w_s(t_cub *cub, double step)
 {
-	if (key == W)
+	if (cub->key.w)
 	{
-		if (cub->map[(int)(cub->start_x + cub->dir_x * STEP)] \
+		if (cub->map[(int)(cub->start_x + cub->dir_x * step)] \
 		[(int)cub->start_y] != '1'
 		&& cub->map[(int)cub->start_x] \
-		[(int)(cub->start_y + cub->dir_y * STEP)] != '1')
+		[(int)(cub->start_y + cub->dir_y * step)] != '1')
 		{
-			cub->start_x += cub->dir_x * STEP;
-			cub->start_y += cub->dir_y * STEP;
+			cub->start_x += cub->dir_x * step;
+			cub->start_y += cub->dir_y * step;
 		}
 	}
-	else
+	if (cub->key.s)
 	{
-		if (cub->map[(int)(cub->start_x - cub->dir_x * STEP)] \
+		if (cub->map[(int)(cub->start_x - cub->dir_x * step)] \
 		[(int)cub->start_y] != '1'
 		&& cub->map[(int)cub->start_x] \
-		[(int)(cub->start_y - cub->dir_y * STEP)] != '1')
+		[(int)(cub->start_y - cub->dir_y * step)] != '1')
 		{
-			cub->start_x -= cub->dir_x * STEP;
-			cub->start_y -= cub->dir_y * STEP;
+			cub->start_x -= cub->dir_x * step;
+			cub->start_y -= cub->dir_y * step;
 		}
 	}
 }
 
-void	look_to_left(t_cub *cub)
+void	look_to_left(t_cub *cub, double grad)
 {
 	double	tmp;
 
 	tmp = cub->dir_x;
-	cub->dir_x = tmp * cos(P) - cub->dir_y * sin(P);
-	cub->dir_y = tmp * sin(P) + cub->dir_y * cos(P);
+	cub->dir_x = tmp * cos(grad) - cub->dir_y * sin(grad);
+	cub->dir_y = tmp * sin(grad) + cub->dir_y * cos(grad);
 	tmp = cub->plane_x;
-	cub->plane_x = tmp * cos(P) - cub->plane_y * sin(P);
-	cub->plane_y = tmp * sin(P) + cub->plane_y * cos(P);
+	cub->plane_x = tmp * cos(grad) - cub->plane_y * sin(grad);
+	cub->plane_y = tmp * sin(grad) + cub->plane_y * cos(grad);
 }
 
-void	look_to_right(t_cub *cub)
+void	look_to_right(t_cub *cub, double grad)
 {
 	double	tmp;
 
 	tmp = cub->dir_x;
-	cub->dir_x = tmp * cos(-P) - cub->dir_y * sin(-P);
-	cub->dir_y = tmp * sin(-P) + cub->dir_y * cos(-P);
+	cub->dir_x = tmp * cos(-grad) - cub->dir_y * sin(-grad);
+	cub->dir_y = tmp * sin(-grad) + cub->dir_y * cos(-grad);
 	tmp = cub->plane_x;
-	cub->plane_x = tmp * cos(-P) - cub->plane_y * sin(-P);
-	cub->plane_y = tmp * sin(-P) + cub->plane_y * cos(-P);
+	cub->plane_x = tmp * cos(-grad) - cub->plane_y * sin(-grad);
+	cub->plane_y = tmp * sin(-grad) + cub->plane_y * cos(-grad);
 }
 
-int	key_press(int key, t_cub *cub)
+int	check_key(t_cub *cub)
 {
-	if (key == ESC)
-		exit(0);
-	else if (key == W || key == S)
-		step_w_s(key, cub);
-	else if (key == D || key == A)
-		step_d_a(key, cub);
-	else if (key == LEFT)
-		look_to_left(cub);
-	else if (key == RIGHT)
-		look_to_right(cub);
+	double	step;
+	double	grad;
+
+	step = (double)(cub->width * cub->height) / 25000000;
+	grad = (double)(cub->width * cub->height) / 50000000;
+	if (cub->key.w || cub->key.s)
+		step_w_s(cub, step);
+	if (cub->key.d || cub->key.a)
+		step_d_a(cub, step);
+	if (cub->key.left)
+		look_to_left(cub, grad);
+	if (cub->key.right)
+		look_to_right(cub, grad);
 	return (0);
 }
